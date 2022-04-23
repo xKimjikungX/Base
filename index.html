@@ -8,7 +8,7 @@
 // readFile function is defined.
 const fs = require('fs')
   
-fs.readFile('script.lua', (err, data) => {
+fs.readFile('./script.lua', (err, data) => {
     if (err) throw err;
   
     console.log(data.toString());
