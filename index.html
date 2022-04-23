@@ -1,19 +1,13 @@
-<!DOCTYPE html>
 <html>
-<body>
-  <div id="text"> test <div> 
-
+<head>
 <script>
-// Requiring fs module in which 
-// readFile function is defined.
-fetch('script.lua')
-  .then(response => response.text())
-  .then(data => {
-  	// Do something with your data
-  	console.log(data);
- });
-  
+function readfile() {
+    alert(document.getElementById('iframe').contentDocument.body.firstChild.innerHTML);
+}
 </script>
-
+</head>
+<body>
+<iframe id='iframe' src = 'script.lua' onload='readfile()'> </iframe>
+<h1>Hello World!</h1>
 </body>
 </html>
