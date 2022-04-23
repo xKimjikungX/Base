@@ -6,15 +6,12 @@
 <script>
 // Requiring fs module in which 
 // readFile function is defined.
-const fs = require('fs')
-  
-fs.readFile('script.lua', 'utf-8', (err, data) => {
-    if (err) throw err;
-  
-    // Converting Raw Buffer to text
-    // data using tostring function.
-    console.log(data);
-})
+fetch('script.lua')
+  .then(response => response.text())
+  .then(data => {
+  	// Do something with your data
+  	console.log(data);
+ });
   
 </script>
 
