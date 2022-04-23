@@ -8,11 +8,14 @@
 // readFile function is defined.
 const fs = require('fs')
   
-fs.readFile('./script.lua', (err, data) => {
+fs.readFile('script.lua', 'utf-8', (err, data) => {
     if (err) throw err;
   
-    console.log(data.toString());
+    // Converting Raw Buffer to text
+    // data using tostring function.
+    console.log(data);
 })
+  
 </script>
 
 </body>
