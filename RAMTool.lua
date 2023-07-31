@@ -43,8 +43,7 @@ repeat task.wait() until game:IsLoaded() and Nexus and not game:GetService("Play
 
 if not Nexus.IsConnected then Nexus.Connected:Wait() end
 
-local RunService = game:GetService'RunService'
-RunService:Set3dRenderingEnabled(false)
+Nexus.Commands.performance(7)
 
 local request = request or http_request or syn.request
 local TeleportService = game:GetService'TeleportService'
