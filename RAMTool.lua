@@ -376,7 +376,7 @@ function tosheet()
     local res = LogSheet()
 
     request({
-        Url = "http://localhost:".._G.WebServer["WebServerPort"].."/SetAlias?Account=".. game.Players.LocalPlayer.Name,
+        Url = "http://localhost:"..tostring(_G.WebServer["WebServerPort"]).."/SetAlias?Account=".. game.Players.LocalPlayer.Name,
         Method = "POST",
         Body = "Sheet: "..tostring(res.Success)
     })
