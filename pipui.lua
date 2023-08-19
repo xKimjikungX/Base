@@ -17,7 +17,7 @@ local library = {
 	colors = {
 		main = Color3.fromRGB(70, 255, 3),
 		background = Color3.fromRGB(40, 40, 40),
-		outerBorder = Color3.fromRGB(80, 80, 80),
+		outerBorder = Color3.fromRGB(15, 15, 15),
 		innerBorder = Color3.fromRGB(73, 63, 73),
 		topGradient = Color3.fromRGB(35, 35, 35),
 		bottomGradient = Color3.fromRGB(29, 29, 29),
@@ -6890,9 +6890,9 @@ function library:CreateWindow(options, ...)
 		}
 		local daaata = {{"AddTextbox", "__Designer.Textbox.ImageAssetID", backgroundsection, {
 			Name = "Image Asset ID",
-			Placeholder = "rbxassetid://14488512943",
+			Placeholder = "rbxassetid://4427304036",
 			Flag = "__Designer.Background.ImageAssetID",
-			Value = "rbxassetid://14488512943",
+			Value = "rbxassetid://4427304036",
 			Callback = updatecolorsnotween
 		}}, {"AddColorpicker", "__Designer.Colorpicker.ImageColor", backgroundsection, {
 			Name = "Image Color",
