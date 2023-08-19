@@ -330,7 +330,7 @@ do
 			pcall(function()
 				if library.Backdrop then
 					library.Backdrop.Visible = library_flags["__Designer.Background.UseBackgroundImage"] and true
-					library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or 14488512943
+					library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or ""
 					library.Backdrop.ImageColor3 = library_flags["__Designer.Background.ImageColor"] or Color3.new(1, 1, 1)
 					library.Backdrop.ImageTransparency = (library_flags["__Designer.Background.ImageTransparency"] or 95) / 100
 				end
@@ -1620,7 +1620,7 @@ function library:CreateWindow(options, ...)
 	innerBackdrop.Visible = library_flags["__Designer.Background.UseBackgroundImage"] and true
 	innerBackdrop.ImageColor3 = library_flags["__Designer.Background.ImageColor"] or Color3.new(1, 1, 1)
 	innerBackdrop.ImageTransparency = (library_flags["__Designer.Background.ImageTransparency"] or 95) / 100
-	innerBackdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or 14488512943
+	innerBackdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or ""
 	library.Backdrop = innerBackdrop
 	tabsHolder.Name = "tabsHolder"
 	tabsHolder.Parent = innerMain
@@ -6890,9 +6890,9 @@ function library:CreateWindow(options, ...)
 		}
 		local daaata = {{"AddTextbox", "__Designer.Textbox.ImageAssetID", backgroundsection, {
 			Name = "Image Asset ID",
-			Placeholder = "rbxassetid://14488512943",
+			Placeholder = "rbxassetid://14488512922",
 			Flag = "__Designer.Background.ImageAssetID",
-			Value = "rbxassetid://14488512943",
+			Value = "rbxassetid://14488512922",
 			Callback = updatecolorsnotween
 		}}, {"AddColorpicker", "__Designer.Colorpicker.ImageColor", backgroundsection, {
 			Name = "Image Color",
@@ -7039,7 +7039,7 @@ function library:CreateWindow(options, ...)
 			end
 		end
 		if library.Backdrop then
-			library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or 14488512943
+			library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or ""
 			library.Backdrop.Visible = library_flags["__Designer.Background.UseBackgroundImage"] and true
 			library.Backdrop.ImageTransparency = (library_flags["__Designer.Background.ImageTransparency"] or 95) / 100
 			library.Backdrop.ImageColor3 = library_flags["__Designer.Background.ImageColor"] or Color3.new(1, 1, 1)
@@ -7153,7 +7153,7 @@ function library:CreateWindow(options, ...)
 			pcall(function()
 				if library.Backdrop then
 					library.Backdrop.Visible = library_flags["__Designer.Background.UseBackgroundImage"] and true
-					library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or 14488512943
+					library.Backdrop.Image = resolveid(library_flags["__Designer.Background.ImageAssetID"], "__Designer.Background.ImageAssetID") or ""
 					library.Backdrop.ImageColor3 = library_flags["__Designer.Background.ImageColor"] or Color3.new(1, 1, 1)
 					library.Backdrop.ImageTransparency = (library_flags["__Designer.Background.ImageTransparency"] or 95) / 100
 				end
