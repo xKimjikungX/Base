@@ -1536,6 +1536,48 @@ function ems:Label(text)
     return  labelfuc
 end
 
+function ems:TextBox(text, callback)
+    local TextBoxFrame = Instance.new("Frame")
+    TextBoxFrame.Name = "TextBoxFrame"
+    TextBoxFrame.Parent = ScolPage2
+    TextBoxFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    TextBoxFrame.BorderSizePixel = 0
+    TextBoxFrame.BackgroundTransparency = 1
+    TextBoxFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    TextBoxFrame.Size = UDim2.new(0, 155, 0, 22)
+
+    local TextBox = Instance.new("TextBox")
+    TextBox.Parent = TextBoxFrame
+    TextBox.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+    TextBox.BorderSizePixel = 0
+    TextBox.ClipsDescendants = true
+    TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextBox.Position = UDim2.new(0.5, 0, 0.5, 0)
+    TextBox.Size = UDim2.new(1, 0, 0.8, 0)
+    TextBox.Font = Enum.Font.GothamSemibold
+    TextBox.PlaceholderColor3 = Color3.fromRGB(222, 222, 222)
+    TextBox.PlaceholderText = text
+    TextBox.Text = ""
+    TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextBox.TextSize = 9.000
+    TextBox.BackgroundTransparency = 1
+
+    local TextButton_Pageframe_Uiconner = Instance.new("UICorner") 
+    TextButton_Pageframe_Uiconner.CornerRadius = UDim.new(0, 3)
+    TextButton_Pageframe_Uiconner.Name = ""
+    TextButton_Pageframe_Uiconner.Parent = TextBoxFrame
+
+    local Stoke = Instance.new("UIStroke",ToggleFrame1)           
+    Stoke.Thickness = 1
+    Stoke.LineJoinMode = Enum.LineJoinMode.Round
+    Stoke.Color = Color3.fromRGB(0, 255, 149)
+    Stoke.Transparency = 0
+
+    TextBox.FocusLost:Connect(function()
+          pcall(callback, TextBox.Text)
+    end)
+end
+
     return ems 
 end
     return page
