@@ -1567,7 +1567,7 @@ function ems:TextBox(text, callback)
     TextButton_Pageframe_Uiconner.Name = ""
     TextButton_Pageframe_Uiconner.Parent = TextBoxFrame
 
-    local Stoke = Instance.new("UIStroke",TextBoxFrame)  
+    local Stoke = Instance.new("UIStroke")  
     Stoke.Parent = TextBoxFrame
     Stoke.Thickness = 1
     Stoke.LineJoinMode = Enum.LineJoinMode.Round
