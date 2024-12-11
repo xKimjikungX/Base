@@ -95,9 +95,7 @@ function create:Win()
     Main.ClipsDescendants = true 
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
 
-    local Logo = Instance.new("ImageLabel")
-    
-    
+    local Logo = Instance.new("ImageButton")
     Logo.Name = "Logo"
     Logo.Parent = Main
     Logo.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -107,6 +105,24 @@ function create:Win()
     Logo.BorderSizePixel = 0
     Logo.Size = UDim2.new(0, 56, 0, 56)
     Logo.Image = "http://www.roblox.com/asset/?id=98144707171184"
+
+    Logo.MouseButton1Click:connect(function ()
+        request({
+            Url = "http://127.0.0.1:6463/rpc?v=1",
+            Method = "POST",
+            Headers = {
+                ["Content-Type"] = "application/json",
+                ["Origin"] = "https://discord.com"
+            },
+            Body = game:GetService("HttpService"):JSONEncode(
+                {
+                    cmd = "INVITE_BROWSER",
+                    args = {code = "switchhub"},
+                    nonce = game:GetService("HttpService"):GenerateGUID(false)
+                }
+            )
+        })
+    end)
     
     local PageTap = Instance.new("Frame")
     local UIGradient_PageTap = Instance.new("UIGradient")
