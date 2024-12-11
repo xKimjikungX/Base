@@ -1528,6 +1528,7 @@ function ems:Label(text)
     Labelxd.Text = tostring(text)
     Labelxd.TextColor3 = Color3.fromRGB(255, 255, 255)
     Labelxd.TextSize = 12.000
+    Labelxd.TextXAlignment = Enum.TextXAlignment.Left
 
     function  labelfuc:Change(text2)
         Labelxd.Text = tostring(text2)
