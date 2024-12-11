@@ -1574,7 +1574,7 @@ function ems:TextBox(text, callback)
     Stoke.Color = Color3.fromRGB(0, 255, 149)
     Stoke.Transparency = 0
 
-    TextBox.FocusLost:Connect(function()
+    TextBox:GetPropertyChangedSignal("Text"):Connect(function()
           pcall(callback, TextBox.Text)
     end)
 end
