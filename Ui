@@ -156,19 +156,28 @@ function create:Win()
   
     MakeDraggable(Main,Main)
     local tween = game:GetService("TweenService")
-    local library = {currenttab = '',toggledui = false}
+
+    getgenv().library = {}
+    getgenv().SwitchHubUi = Main
+
     tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back),{Size = UDim2.new(0, 395, 0, 395)}):Play()
+
+    getgenv().library.toggledui = false
+
+    function library:ToggleUi()
+        if getgenv().library.toggledui == false then
+            getgenv().library.toggledui = true  
+            tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0, 0, 0, 0)}):Play()
+        else 
+            getgenv().library.toggledui = false 
+            tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back),{Size = UDim2.new(0, 395, 0, 395)}):Play()
+        end 
+    end
 
 
     game:GetService("UserInputService").InputBegan:Connect(function(input)
-        if input.KeyCode == Enum.KeyCode.RightControl then 
-            if library.toggledui == false then
-                library.toggledui = true  
-                tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0, 0, 0, 0)}):Play()
-            else 
-                library.toggledui = false 
-                tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back),{Size = UDim2.new(0, 395, 0, 395)}):Play()
-            end 
+        if input.KeyCode == Enum.KeyCode.RightControl or input.KeyCode == Enum.KeyCode.LeftControl then 
+            library:ToggleUi()
         end
     end)
 
