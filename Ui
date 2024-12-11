@@ -12,6 +12,7 @@ local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
+local request = request or httprequest or http_request
 
 local Atomlib = Instance.new("ScreenGui")
 
@@ -105,7 +106,6 @@ function create:Win()
     Logo.BorderSizePixel = 0
     Logo.Size = UDim2.new(0, 56, 0, 56)
     Logo.Image = "http://www.roblox.com/asset/?id=98144707171184"
-
     Logo.MouseButton1Click:connect(function ()
         request({
             Url = "http://127.0.0.1:6463/rpc?v=1",
