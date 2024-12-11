@@ -1499,7 +1499,7 @@ function ems:Ti(text)
     lineframe3.Size = UDim2.new(0, 130, 0, 20)
     lineframe3.Font = Enum.Font.GothamSemibold
     lineframe3.Text = tostring(text)
-    lineframe3.TextColor3 = Color3.fromRGB(255, 100, 150)
+    lineframe3.TextColor3 = Color3.fromRGB(1, 109, 46)
     lineframe3.TextSize = 12.000
 end
 
