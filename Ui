@@ -19,8 +19,6 @@ Atomlib.Name = "Switch Hub"
 Atomlib.Parent = game:GetService("CoreGui")
 Atomlib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-
-
 local function MakeDraggable(topbarobject, object)
 	local Dragging = nil
 	local DragInput = nil
@@ -399,8 +397,6 @@ function page:addpage()
 local ems = {}
 
 function ems:Button(text,callback)
-    
-
 
     local ToggleFrame = Instance.new("Frame")
     
@@ -780,11 +776,13 @@ function  ems:Toggle(text,de,callback)
         pcall(callback,togdoc.boolen)
     end)
 
-        if de == true then
+        if de then
             ImageLabel_Toggle:TweenSizeAndPosition(UDim2.new(0, 27, 0, 27), UDim2.new(0.5, 0, 0.5, 0), "In", "Bounce", 0.1, true)
             wait(0.1)
             ImageLabel_Toggle:TweenSizeAndPosition(UDim2.new(0, 19, 0, 19), UDim2.new(0.5, 0, 0.5, 0), "In", "Bounce", 0.1, true)
             togdoc.boolen = not togdoc.boolen
+            pcall(callback,togdoc.boolen)
+        else
             pcall(callback,togdoc.boolen)
         end
     end
