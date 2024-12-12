@@ -809,6 +809,7 @@ function ems:DropDown(text,text2,list,callback)
     local checkdrop = {checkscol = false ; }
     local DropFrame = Instance.new("Frame")
     local dropfuc = {}
+    local Selected = {}
 
     DropFrame.Name = "DropFrame"
     DropFrame.Parent = ScolPage2
@@ -1018,8 +1019,22 @@ function ems:DropDown(text,text2,list,callback)
             wait()
         until ScolPage_list.Size ==  UDim2.new(0, 155, 0, 0)
         ListFrame.Visible = false
-        TextLabelDrop2.Text = text2.." : "..tostring(v)  
-        callback(v)
+
+        local found = false
+        for i2, v2 in ipairs(Selected) do
+            if v2 == v then
+                found = true
+                table.remove(Selected, i2)
+                break
+            end
+        end
+
+        if not found then
+            table.insert(Selected, v)
+        end
+
+        TextLabelDrop2.Text = text2.." : "..table.concat(Selected, ", ")
+        callback(Selected)
     end
 )
 
@@ -1166,8 +1181,22 @@ end
             wait()
         until ScolPage_list.Size ==  UDim2.new(0, 140, 0, 0)
         ListFrame.Visible = false
-        TextLabelDrop2.Text = text.." : "..tostring(text2)  
-        callback(text2)
+        
+        local found = false
+        for i2, v2 in ipairs(Selected) do
+            if v2 == v then
+                found = true
+                table.remove(Selected, i2)
+                break
+            end
+        end
+
+        if not found then
+            table.insert(Selected, v)
+        end
+
+        TextLabelDrop2.Text = text2.." : "..table.concat(Selected, ", ")
+        callback(Selected)
     end
 )
 
