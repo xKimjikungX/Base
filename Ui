@@ -803,13 +803,19 @@ function  ems:Toggle(text,de,callback)
         end
     end
 
-function ems:DropDown(text,text2,list,callback)
+function ems:DropDown(text,text2, default,list,callback)
 
 
     local checkdrop = {checkscol = false ; }
     local DropFrame = Instance.new("Frame")
     local dropfuc = {}
-    local Selected = {}
+    local Selected = default or {}
+
+    for i, v in ipairs(Selected) do
+        if not table.find(list, v) then
+            table.remove(Selected, i)
+        end
+    end
 
     DropFrame.Name = "DropFrame"
     DropFrame.Parent = ScolPage2
@@ -1243,6 +1249,21 @@ end
     end   
 
 end  
+    if #Selected > 0 then
+        local text_out = text2.." : "..table.concat(Selected, ", ")
+        if string.len(text_out) >= 20 then
+            TextLabelDrop2.TextSize = 8.00
+        else
+            TextLabelDrop2.TextSize = 10.000
+        end
+        
+        TextLabelDrop2.Text = text_out
+        callback(Selected)
+    else
+        TextLabelDrop2.Text = text2.." : "
+        callback(Selected)
+    end
+
     return  dropfuc
 end
 
