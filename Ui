@@ -1033,7 +1033,14 @@ function ems:DropDown(text,text2,list,callback)
             table.insert(Selected, v)
         end
 
-        TextLabelDrop2.Text = text2.." : "..table.concat(Selected, ", ")
+        local text_out = text2.." : "..table.concat(Selected, ", ")
+        if string.len(text_out) >= 20 then
+            TextLabelDrop2.TextSize = 7.00
+        else
+            TextLabelDrop2.TextSize = 10.000
+        end
+
+        TextLabelDrop2.Text = text_out
         callback(Selected)
     end
 )
@@ -1181,13 +1188,12 @@ end
             wait()
         until ScolPage_list.Size ==  UDim2.new(0, 140, 0, 0)
         ListFrame.Visible = false
-        
+
         local found = false
         for i2, v2 in ipairs(Selected) do
             if v2 == v then
                 found = true
                 table.remove(Selected, i2)
-                break
             end
         end
 
@@ -1195,7 +1201,14 @@ end
             table.insert(Selected, v)
         end
 
-        TextLabelDrop2.Text = text2.." : "..table.concat(Selected, ", ")
+       local text_out = text2.." : "..table.concat(Selected, ", ")
+        if string.len(text_out) >= 20 then
+            TextLabelDrop2.TextSize = 7.00
+        else
+            TextLabelDrop2.TextSize = 10.000
+        end
+        
+        TextLabelDrop2.Text = text_out
         callback(Selected)
     end
 )
