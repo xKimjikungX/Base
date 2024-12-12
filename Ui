@@ -1035,7 +1035,7 @@ function ems:DropDown(text,text2,list,callback)
 
         local text_out = text2.." : "..table.concat(Selected, ", ")
         if string.len(text_out) >= 20 then
-            TextLabelDrop2.TextSize = 7.00
+            TextLabelDrop2.TextSize = 8.00
         else
             TextLabelDrop2.TextSize = 10.000
         end
@@ -1203,7 +1203,7 @@ end
 
        local text_out = text2.." : "..table.concat(Selected, ", ")
         if string.len(text_out) >= 20 then
-            TextLabelDrop2.TextSize = 7.00
+            TextLabelDrop2.TextSize = 8.00
         else
             TextLabelDrop2.TextSize = 10.000
         end
