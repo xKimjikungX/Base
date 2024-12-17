@@ -1645,7 +1645,7 @@ function ems:TextBox(text, callback)
     Stoke.Parent = TextBoxFrame
     Stoke.Thickness = 1
     Stoke.LineJoinMode = Enum.LineJoinMode.Round
-    Stoke.Color = Color3.fromRGB(255, 0, 0)
+    Stoke.Color = Color3.fromRGB(0, 255, 149)
     Stoke.Transparency = 0
 
     TextBox:GetPropertyChangedSignal("Text"):Connect(function()
