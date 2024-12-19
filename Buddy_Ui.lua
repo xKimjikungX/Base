@@ -1202,18 +1202,17 @@ end
             wait()
         until ScolPage_list.Size ==  UDim2.new(0, 140, 0, 0)
         ListFrame.Visible = false
-
         if muti then
             local found = false
             for i2, v2 in ipairs(Selected) do
-                if v2 == v then
+                if v2 == text2 then
                     found = true
                     table.remove(Selected, i2)
                 end
             end
 
             if not found then
-                table.insert(Selected, v)
+                table.insert(Selected, text2)
             end
 
             local text_out = text2.." : "..table.concat(Selected, ", ")
@@ -1225,7 +1224,7 @@ end
 
             TextLabelDrop2.Text = text_out
         else
-            TextLabelDrop2.Text = text2.." : "..tostring(v)
+            TextLabelDrop2.Text = text2.." : "..tostring(text2)
         end
 
         callback(Selected)
