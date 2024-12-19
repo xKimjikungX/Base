@@ -1261,7 +1261,7 @@ end
     end   
 
 end  
-    if #Selected > 0 then
+    if typeof(Selected) == "table" and #Selected > 0 then
         local text_out = text2.." : "..table.concat(Selected, ", ")
         if string.len(text_out) >= 20 then
             TextLabelDrop2.TextSize = 8.00
