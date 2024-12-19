@@ -170,7 +170,7 @@ function create:Win()
     local tween = game:GetService("TweenService")
 
     getgenv().library = {}
-    getgenv().SwitchHubUi = Main
+    getgenv().BuddyHubUi = Main
 
     tween:Create(Main,TweenInfo.new(0.4,Enum.EasingStyle.Back),{Size = UDim2.new(0, 395, 0, 395)}):Play()
 
