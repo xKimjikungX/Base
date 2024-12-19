@@ -1271,6 +1271,9 @@ end
         
         TextLabelDrop2.Text = text_out
         callback(Selected)
+    elseif typeof(Selected) == "string" then
+        TextLabelDrop2.Text = text2.." : " .. Selected
+        callback(Selected)
     else
         TextLabelDrop2.Text = text2.." : "
         callback(Selected)
