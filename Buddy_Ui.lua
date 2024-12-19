@@ -801,19 +801,25 @@ function  ems:Toggle(text,de,callback)
         end
     end
 
-function ems:DropDown(text,text2, default,list,callback)
+function ems:DropDown(text,text2, default, muti,list,callback)
 
 
     local checkdrop = {checkscol = false ; }
     local DropFrame = Instance.new("Frame")
     local dropfuc = {}
-    local Selected = default or {}
 
-    for i, v in ipairs(Selected) do
-        if not table.find(list, v) then
-            table.remove(Selected, i)
+    if muti then
+        Selected = default or {}
+
+        for i, v in ipairs(Selected) do
+            if not table.find(list, v) then
+                table.remove(Selected, i)
+            end
         end
+    else
+        Selected = default
     end
+    
 
     DropFrame.Name = "DropFrame"
     DropFrame.Parent = ScolPage2
@@ -1024,26 +1030,31 @@ function ems:DropDown(text,text2, default,list,callback)
         until ScolPage_list.Size ==  UDim2.new(0, 155, 0, 0)
         ListFrame.Visible = false
 
-        local found = false
-        for i2, v2 in ipairs(Selected) do
-            if v2 == v then
-                found = true
-                table.remove(Selected, i2)
+        if muti then
+            local found = false
+            for i2, v2 in ipairs(Selected) do
+                if v2 == v then
+                    found = true
+                    table.remove(Selected, i2)
+                end
             end
-        end
 
-        if not found then
-            table.insert(Selected, v)
-        end
+            if not found then
+                table.insert(Selected, v)
+            end
 
-        local text_out = text2.." : "..table.concat(Selected, ", ")
-        if string.len(text_out) >= 20 then
-            TextLabelDrop2.TextSize = 8.00
+            local text_out = text2.." : "..table.concat(Selected, ", ")
+            if string.len(text_out) >= 20 then
+                TextLabelDrop2.TextSize = 8.00
+            else
+                TextLabelDrop2.TextSize = 10.000
+            end
+
+            TextLabelDrop2.Text = text_out
         else
-            TextLabelDrop2.TextSize = 10.000
+            TextLabelDrop2.Text = text2.." : "..tostring(v)
         end
 
-        TextLabelDrop2.Text = text_out
         callback(Selected)
     end
 )
@@ -1192,26 +1203,31 @@ end
         until ScolPage_list.Size ==  UDim2.new(0, 140, 0, 0)
         ListFrame.Visible = false
 
-        local found = false
-        for i2, v2 in ipairs(Selected) do
-            if v2 == v then
-                found = true
-                table.remove(Selected, i2)
+        if muti then
+            local found = false
+            for i2, v2 in ipairs(Selected) do
+                if v2 == v then
+                    found = true
+                    table.remove(Selected, i2)
+                end
             end
-        end
 
-        if not found then
-            table.insert(Selected, v)
-        end
+            if not found then
+                table.insert(Selected, v)
+            end
 
-       local text_out = text2.." : "..table.concat(Selected, ", ")
-        if string.len(text_out) >= 20 then
-            TextLabelDrop2.TextSize = 8.00
+            local text_out = text2.." : "..table.concat(Selected, ", ")
+            if string.len(text_out) >= 20 then
+                TextLabelDrop2.TextSize = 8.00
+            else
+                TextLabelDrop2.TextSize = 10.000
+            end
+
+            TextLabelDrop2.Text = text_out
         else
-            TextLabelDrop2.TextSize = 10.000
+            TextLabelDrop2.Text = text2.." : "..tostring(v)
         end
-        
-        TextLabelDrop2.Text = text_out
+
         callback(Selected)
     end
 )
