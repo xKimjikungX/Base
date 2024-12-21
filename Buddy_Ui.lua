@@ -1052,6 +1052,7 @@ function ems:DropDown(text,text2, default, muti,list,callback)
 
             TextLabelDrop2.Text = text_out
         else
+            Selected = v
             TextLabelDrop2.Text = text2.." : "..tostring(v)
         end
 
@@ -1183,9 +1184,11 @@ end
             else
                 TextLabelDrop2.TextSize = 10.000
             end
-
+            
+            Selected = item
             TextLabelDrop2.Text = text_out
         elseif type(item) == "string" then
+            Selected = item
             if item ~= Selected then
                 TextLabelDrop2.Text = text2.." : "..tostring(text2)
             end
@@ -1249,6 +1252,7 @@ end
 
             TextLabelDrop2.Text = text_out
         else
+            Selected = text2
             TextLabelDrop2.Text = text2.." : "..tostring(text2)
         end
 
