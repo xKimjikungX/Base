@@ -1169,6 +1169,31 @@ end
         pcall(callback,   checkdrop.checkscol )
     end)
 
+    function dropfuc:Set(item)
+        if type(item) == "table" then
+            for _, v in pairs(item) do
+                if table.find(list, v) and not table.find(Selected, v) then
+                    table.insert(Selected, v)
+                end
+            end
+            
+            local text_out = text2.." : "..table.concat(Selected, ", ")
+            if string.len(text_out) >= 20 then
+                TextLabelDrop2.TextSize = 8.00
+            else
+                TextLabelDrop2.TextSize = 10.000
+            end
+
+            TextLabelDrop2.Text = text_out
+        elseif type(item) == "string" then
+            if item ~= Selected then
+                TextLabelDrop2.Text = text2.." : "..tostring(text2)
+            end
+        end
+
+        callback(Selected)
+    end
+
     function dropfuc:Add(text2)
        
     local listDropButton = Instance.new("TextButton")
