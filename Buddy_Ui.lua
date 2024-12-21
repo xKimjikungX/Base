@@ -1122,7 +1122,7 @@ end
         ListFrame.Visible = false
         end
         checkdrop.checkscol  = not    checkdrop.checkscol  
-        pcall(callback,   checkdrop.checkscol )
+        --pcall(callback,   checkdrop.checkscol )
     end)
 
 
@@ -1167,7 +1167,7 @@ end
         ListFrame.Visible = false
         end
         checkdrop.checkscol  = not    checkdrop.checkscol  
-        pcall(callback,   checkdrop.checkscol )
+        --pcall(callback,   checkdrop.checkscol )
     end)
 
     function dropfuc:Set(item)
