@@ -1190,8 +1190,11 @@ end
         elseif type(item) == "string" then
             Selected = item
             if item ~= Selected then
-                TextLabelDrop2.Text = text2.." : "..tostring(text2)
+                TextLabelDrop2.Text = text2.." : "..tostring(item)
             end
+        elseif not item then
+            Selected = nil
+            TextLabelDrop2.Text = text2.." : "
         end
 
         callback(Selected)
